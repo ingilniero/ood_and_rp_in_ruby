@@ -5,3 +5,10 @@ class Person
     @gender = gender
   end
 end
+
+class Screencaster < Person
+  def initialize first_name, last_name, gender, tools
+    super first_name, last_name, gender
+    @tools = tools
+  end
+end

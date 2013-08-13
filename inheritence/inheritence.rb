@@ -12,3 +12,10 @@ class Screencaster < Person
     @tools = tools
   end
 end
+
+class Student < Person
+  def initialize first_name, last_name, gender, preferred_language
+    super first_name, last_name, gender
+    @preferred_language = preferred_language
+  end
+end

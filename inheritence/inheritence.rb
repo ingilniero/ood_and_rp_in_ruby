@@ -4,6 +4,10 @@ class Person
     @last_name = last_name
     @gender = gender
   end
+
+  def full_name
+    @first_name + " " + @last_name
+  end
 end
 
 class Screencaster < Person

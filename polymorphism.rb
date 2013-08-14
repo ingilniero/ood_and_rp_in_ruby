@@ -33,6 +33,10 @@ class Screencaster < Person
     super first_name, last_name, gender
     @tools = tools
   end
+
+  def present
+    %Q{Welcome to the class! My name is #{full_name} and I'm your tutor.}
+  end
 end
 
 class Student < Person

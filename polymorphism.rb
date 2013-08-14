@@ -9,6 +9,10 @@ class Person
     first_name + " " + last_name
   end
 
+  def present
+    %Q{Hello, my name is #{full_name}, My gender is #{gender}.}
+  end
+
   private
 
   def first_name
@@ -17,6 +21,10 @@ class Person
 
   def last_name
     @last_name
+  end
+
+  def gender
+    @gender
   end
 end
 

@@ -10,7 +10,7 @@ class Person
   end
 
   def present
-    %Q{Hello, my name is #{full_name}, My gender is #{gender}.}
+    raise NotImplementedError, "Must be implemented by subtypes."
   end
 
   private
@@ -43,5 +43,11 @@ class Student < Person
   def initialize first_name, last_name, gender, preferred_language
     super first_name, last_name, gender
     @preferred_language = preferred_language
+  end
+
+  def present
+    %Q{What's up, everyone? I'm #{full_name} and I'm happy
+       to be int he commuty! I'm #{gender} by the way.
+      }
   end
 end

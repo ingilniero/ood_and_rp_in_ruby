@@ -1,6 +1,4 @@
 class Person
-  attr_reader :first_name, :last_name
-
   def initialize first_name, last_name, gender
     @first_name = first_name
     @last_name = last_name
@@ -9,6 +7,16 @@ class Person
 
   def full_name
     first_name + " " + last_name
+  end
+
+  private
+
+  def first_name
+    @first_name
+  end
+
+  def last_name
+    @last_name
   end
 end
 

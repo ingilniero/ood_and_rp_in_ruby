@@ -7,7 +7,7 @@ class Point
     @z = z
   end
 
-  def some_function x, y, z
+  def some_function point
     # Do something
   end
 end

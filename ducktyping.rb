@@ -6,16 +6,28 @@ class Person
     @last_name = last_name
     @gender = gender
   end
+
+  def talk
+    'Hello!'
+  end
 end
 
 class Animal
   def initialize name
     @name = name
   end
+
+  def talk
+    'Woof, meow, roar!'
+  end
 end
 
 class Bug
   def initialize type
     @type = type
+  end
+
+  def talk
+    'Do bugs even talk..?!'
   end
 end

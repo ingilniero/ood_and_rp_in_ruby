@@ -10,6 +10,10 @@ class A
   def some_function
     y / z
   end
+
+  def special_method
+    x + y * z ** some_function
+  end
 end
 
 class B
@@ -20,6 +24,6 @@ class B
   end
 
   def my_method
-    a.x + a.y * a.z ** a.some_function
+    a.special_method
   end
 end

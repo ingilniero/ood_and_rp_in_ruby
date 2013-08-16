@@ -15,19 +15,18 @@ class Post
   end
 
   def condensed_format
-    return_string = ''
-    return_string << "Title: #{title}"
-    return_string << "Date: #{date.strftime "%Y/%m/%d"}"
-
-    return_string
+    metadata
   end
 
   def full_format
-    return_string = ''
-    return_string << "Title: #{title}"
-    return_string << "Date: #{date.strftime "%Y/%m/%d"}"
+    return_string = metadata
     return_string << "--\n#{body}"
+  end
 
-    return_string
+  private
+
+  def metadata
+    return_string = "Title: #{title}"
+    return_string << "Date: #{date.strftime "%Y/%m/%d"}"
   end
 end

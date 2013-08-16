@@ -8,20 +8,26 @@ class Student
 
   def set_all_grades_to grade
     %w(first second third).each do |which_term|
-      @terms.find{ |term| term.name == which_term}.set_all_grades grade
+      find(which_term).set_all_grades grade
     end
   end
 
   def first_term_grade
-    @terms.find{ |term| term.name == 'first' }.grade
+    find('first').grade
   end
 
   def second_term_grade
-    @terms.find{ |term| term.name == 'second' }.grade
+    find('second').grade
   end
 
   def third_term_grade
-    @terms.find{ |term| term.name == 'third' }.grade
+    find('third').grade
+  end
+
+  private
+
+  def find which_term
+    @terms.find{ |term| term.name == which_term }
   end
 end
 

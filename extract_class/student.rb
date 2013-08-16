@@ -6,28 +6,22 @@ class Student
     end
   end
 
-  attr_accessor :first_term_assiduity, :first_term_test, :first_term_behavior
-  attr_accessor :second_term_assiduity, :second_term_test, :second_term_behavior
-  attr_accessor :third_term_assiduity, :third_term_test, :third_term_behavior
-
   def set_all_grades_to grade
     %w(first second third).each do |which_term|
-      %w(assiduity test behavior).each do |criteria|
-        send "#{which_term}_term_#{criteria}=".to_sym, grade
-      end
+      @terms.find{ |term| term.name == which_term}.set_all_grades grade
     end
   end
 
   def first_term_grade
-    (first_term_assiduity + first_term_test + first_term_behavior) / 3
+    @terms.find{ |term| term.name == 'first' }.grade
   end
 
   def second_term_grade
-    (second_term_assiduity + second_term_test + second_term_behavior) / 3
+    @terms.find{ |term| term.name == 'second' }.grade
   end
 
   def third_term_grade
-    (third_term_assiduity + third_term_test + third_term_behavior) / 3
+    @terms.find{ |term| term.name == 'third' }.grade
   end
 end
 
@@ -39,5 +33,15 @@ class Term
     @assiduity = 0
     @test = 0
     @behavior = 0
+  end
+
+  def set_all_grades grade
+    @assiduity = grade
+    @test = grade
+    @behavior = grade
+  end
+
+  def grade
+    (assiduity + test + behavior) / 3
   end
 end

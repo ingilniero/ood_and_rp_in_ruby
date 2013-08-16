@@ -23,3 +23,14 @@ class Student
     (third_term_assiduity + third_term_test + third_term_behavior) / 3
   end
 end
+
+class Term
+  attr_reader :name, :assiduity, :test, :behavior
+
+  def initialize name
+    @name = name
+    @assiduity = 0
+    @test = 0
+    @behavior = 0
+  end
+end

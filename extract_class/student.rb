@@ -1,4 +1,11 @@
 class Student
+  def initialize
+    @terms = []
+    %w(first second third).each do |which_term|
+      @terms << Term.new(which_term)
+    end
+  end
+
   attr_accessor :first_term_assiduity, :first_term_test, :first_term_behavior
   attr_accessor :second_term_assiduity, :second_term_test, :second_term_behavior
   attr_accessor :third_term_assiduity, :third_term_test, :third_term_behavior

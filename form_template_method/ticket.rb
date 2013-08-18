@@ -1,19 +1,26 @@
 class Ticket
-  attr_reader :price
 
   def initialize
     @price = 2.0
   end
+
+  def price
+    @price * discount
+  end
+
+  def discount
+    1
+  end
 end
 
 class SeniorTicket < Ticket
-  def price
-    @price * 0.75
+  def discount
+    0.75
   end
 end
 
 class JuniorTicket < Ticket
-  def price
-    @price * 0.5
+  def discount
+    0.5
   end
 end

@@ -3,7 +3,7 @@ class UserService
   PASSWORD = 'secret'
 
   class << self
-    def lgn username, password
+    def sign_in username, password
       username == USERNAME && password == PASSWORD
     end
   end

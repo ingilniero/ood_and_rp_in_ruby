@@ -5,6 +5,6 @@ require './rename_method/user_service'
 
 describe UserService do
   it 'can log in' do
-    assert UserService.lgn('jose', 'secret')
+    assert UserService.sign_in('jose', 'secret')
   end
 end

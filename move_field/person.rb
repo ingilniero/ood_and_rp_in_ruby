@@ -4,26 +4,26 @@ PHONE_CODES = {
 }
 
 class Phone
-  attr_reader :number
+  attr_reader :number, :locale
 
-  def initialize number
+  def initialize number, locale
     @number = number
+    @locale = locale
   end
 
   def to_s
-    number
+    [PHONE_CODES[locale], ' ', number].join
   end
 end
 
 class Person
-  attr_reader :locale, :phone
+  attr_reader :phone
 
   def initialize(locale: :en_gb, phone: nil)
-    @locale = locale
-    @phone = Phone.new phone
+    @phone = Phone.new phone, locale
   end
 
   def full_phone
-    ['+', PHONE_CODES[locale], ' ', phone].join
+    ['+', phone].join
   end
 end

@@ -5,12 +5,13 @@ class Person
     @first_name = first_name
     @last_name = last_name
   end
+
+  def full_name
+    first_name + ' ' + last_name
+  end
 end
 
 class MalePerson < Person
-  def full_name
-    first_name + " " + last_name
-  end
 
   def gender
     'M'
@@ -18,9 +19,6 @@ class MalePerson < Person
 end
 
 class FemalePerson < Person
-  def full_name
-    first_name + ' ' + last_name
-  end
 
   def gender
     'F'

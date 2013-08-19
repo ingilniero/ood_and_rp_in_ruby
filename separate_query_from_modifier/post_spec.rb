@@ -8,8 +8,12 @@ describe Post do
     POSTS.each { |post| post.unpublish }
   end
 
-  it 'is publishable and retrieves all unpublished posts count' do
+  it 'is publishable' do
     post = Post.find(1)
-    post.publish.must_equal 4
+    post.publish.must_equal true
+  end
+
+  it 'retrieves all unpublished posts count' do
+    Post.unpublished.must_equal 4
   end
 end

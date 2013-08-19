@@ -13,9 +13,12 @@ class Post
     POSTS.find { |post| post.id == id }
   end
 
+  def self.unpublished
+    POSTS.count { |post| !post.published? }
+  end
+
   def publish
     @publised = true
-    return POSTS.count { |post| !post.published? }
   end
 
   def unpublish

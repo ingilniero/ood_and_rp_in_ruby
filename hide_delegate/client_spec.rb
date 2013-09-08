@@ -8,8 +8,8 @@ describe Client do
   let(:department) { Department.new(manager) }
   let(:clerk)     { Clerk.new(department) }
 
-  it 'wants to know about the manager through a department' do
-    client = Client.new(department)
-    client.department.manager.wont_be_nil
+  it 'should rather be guided by a clerk to access that info' do
+    client = Client.new(clerk)
+    client.clerk.manager.wont_be_nil
   end
 end

@@ -1,8 +1,8 @@
 class Client
-  attr_reader :department
+  attr_reader :clerk
 
-  def initialize department
-    @department = department
+  def initialize clerk
+    @clerk = clerk
   end
 end
 
@@ -15,5 +15,15 @@ class Department
   def initialize manager
     @manager = manager
     manager.department = self
+  end
+end
+
+class Clerk
+  def initialize department
+    @department = department
+  end
+
+  def manager
+    @department.manager
   end
 end

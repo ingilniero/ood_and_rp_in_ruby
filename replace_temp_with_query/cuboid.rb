@@ -8,7 +8,10 @@ class Cuboid
   end
 
   def volume
-    area = length * width
     area * height
+  end
+
+  def area
+    length * width
   end
 end

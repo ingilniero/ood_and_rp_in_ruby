@@ -10,12 +10,18 @@ class Post
   end
 
   def self.find_and_publish(id)
-    post = POSTS.find { |post| post.id == id }
-    post.publish unless post.nil?
+    post = POSTS.find { |post| post.id == id } || NullPost.new
+    post.publish
   end
 
   def publish
     @published = true
+  end
+end
+
+class NullPost
+  def publish
+    # noop
   end
 end
 

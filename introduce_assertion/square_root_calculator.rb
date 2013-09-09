@@ -1,7 +1,16 @@
+module Assertions
+  def assert(&block)
+    raise ArgumentError unless block.call
+  end
+end
+
 class SquareRootCalculator
+  extend Assertions
+
   class << self
     def calculate(number)
-      Math.sqrt number if number > 0
+      assert { number > 0 }
+      Math.sqrt number
     end
   end
 end

@@ -18,22 +18,34 @@ class TaxAlgorihm
     @number_of_people_under_roof = 1
   end
 
-  def simulate
-
+  def process_type
     if @type == :dependent_worker
       @return_value += @income * 0.02
     else
       @return_value += @income * 0.04
     end
+  end
 
+  def handle_number_of_people_under_roof
     if @number_of_people_under_roof > 2
       @return_value *= 1.10
     end
+  end
 
+  def process_income_expense_difference
     if @income - @expenses > @income * 0.5
       @return_value += @expenses * 0.05
     end
+  end
 
+  def process_expenses
     @return_value -= @expenses * 0.30
+  end
+
+  def simulate
+    process_type
+    handle_number_of_people_under_roof
+    process_income_expense_difference
+    process_expenses
   end
 end

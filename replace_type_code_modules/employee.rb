@@ -12,16 +12,25 @@ class Employee
   end
 
   def self.build(type: :regular)
-    new type: type
+    instance = new
+    instance.extend const_get(type.capitalize)
   end
+end
 
-  private
-
+module Regular
   def bonus
-    case @type
-    when :regular then 0
-    when :boss then 1500.0
-    when :manager then 800.0
-    end
+    0
+  end
+end
+
+module Boss
+  def bonus
+    1500.0
+  end
+end
+
+module Manager
+  def bonus
+    800.0
   end
 end

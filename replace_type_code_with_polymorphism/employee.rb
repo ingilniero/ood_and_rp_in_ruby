@@ -11,16 +11,25 @@ class Employee
     base_salary + bonus
   end
 
-  def self.build(type: :regular)
-    new type: type
+  def self.build(type: :employee)
+    const_get(type.capitalize).new
   end
 
   private
   def bonus
-    case @type
-    when :regular then 0
-    when :boss then 1500.0
-    when :manager then 800.0
-    end
+    0
+  end
+end
+
+class Boss < Employee
+  def bonus
+    1500.0
+  end
+
+end
+
+class Manager < Employee
+  def bonus
+    800.0
   end
 end
